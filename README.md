@@ -28,8 +28,8 @@ Replace the placeholder links below after the release is ready.
 
 ## News
 
-- `[2026.xx.xx]` Code, checkpoints, and scripts are being organized.
-- `[2026.xx.xx]` DiffusionCompass is accepted to ECCV 2026.
+Code, checkpoints, and scripts are being organized.
+DiffusionCompass is accepted to ECCV 2026.
 
 ## Overview
 
@@ -58,8 +58,8 @@ DiffusionCompass combines three key ideas:
 The figures below are reused from the paper draft as placeholders. They focus on the core idea rather than benchmark comparisons, and can be replaced with PNG assets before the public release for better GitHub rendering.
 
 <p align="center">
-  <img src="assets/fig/intro_a.pdf" width="42%">
-  <img src="assets/fig/intro_b.pdf" width="42%">
+  <img src=".assets/fig/intro_a.pdf" width="42%">
+  <img src=".assets/fig/intro_b.pdf" width="42%">
 </p>
 
 <p align="center">
@@ -70,7 +70,6 @@ The figures below are reused from the paper draft as placeholders. They focus on
 
 - Strong post-training framework for text-to-image and text-to-video diffusion models.
 - Combines on-policy RL with off-policy quality references.
-- Improves convergence speed compared with strong on-policy baselines.
 - Mitigates reward overfitting, reward hacking, and mode collapse.
 - Compatible with different on-policy diffusion RL objectives.
 
@@ -131,41 +130,6 @@ Evaluation scripts will cover the main benchmarks used in the paper:
 python evaluation/eval_geneval.py --config configs/eval/geneval.yaml
 python evaluation/eval_ocr.py --config configs/eval/ocr.yaml
 python evaluation/eval_vbench.py --config configs/eval/vbench.yaml
-```
-
-## Repository Structure
-
-```text
-DiffusionCompass/
-├── configs/
-│   ├── t2i/              # text-to-image training configs
-│   ├── t2v/              # text-to-video training configs
-│   └── eval/             # benchmark evaluation configs
-├── diffusioncompass/
-│   ├── models/           # model wrappers and LoRA/adapter utilities
-│   ├── pipelines/        # sampling pipelines for online rollouts and inference
-│   ├── trainers/         # on-policy, off-policy, and joint Compass trainers
-│   ├── rewards/          # reward model interfaces and score normalization
-│   ├── data/             # prompt datasets, anchor banks, and dataloaders
-│   └── utils/            # distributed, logging, checkpoint, and misc helpers
-├── scripts/
-│   ├── train_compass_t2i.py
-│   ├── train_compass_t2v.py
-│   ├── sample_t2i.py
-│   └── sample_t2v.py
-├── tools/
-│   ├── build_off_policy_bank.py
-│   ├── generate_on_policy.py
-│   └── convert_checkpoints.py
-├── evaluation/
-│   ├── eval_geneval.py
-│   ├── eval_ocr.py
-│   ├── eval_pickscore.py
-│   └── eval_vbench.py
-├── assets/               # README figures, teaser images, and demos
-├── requirements.txt
-├── main.tex
-└── README.md
 ```
 
 ## Citation
